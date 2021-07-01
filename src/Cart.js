@@ -5,8 +5,6 @@ class Cart extends React.Component{
         return(
             <div className="cart">
                 <CartItem/>
-                <CartItem/>
-                <CartItem/>
             </div>
         );
     }

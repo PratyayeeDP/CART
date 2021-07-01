@@ -1,7 +1,11 @@
+//we import React from react package:
 import React from 'react';
 
+//our CartItem will inherit some features from React.Component:
 class CartItem extends React.Component{
+    //we add this constructor in order to define the state of the cartItem:
     constructor(){
+        //we need to call constructor of the parent class: super()
         super();
         this.state={
             price: 999,
@@ -10,11 +14,27 @@ class CartItem extends React.Component{
             img:''
         }
         //this.increaseQuantity=this.increaseQuantity.bind(this);
+        //this.testing();
+    }
+    testing(){
+        const promise=new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve('done');
+            },5000);
+        })
+
+        promise.then(()=>{
+            //setstate acts like a synchronous call
+            this.setState({qty:this.state.qty+10});
+            this.setState({qty:this.state.qty+10});
+            this.setState({qty:this.state.qty+10});
+            console.log('state',this.state);
+        })
     }
     increaseQuantity=()=>{
         //this.state.qty+=1;
         //console.log('this',this.state);
-        //setState form 1:
+        //setState form 1: shallow merging
         // this.setState({
         //     qty:this.state.qty+1
         // });
@@ -39,6 +59,7 @@ class CartItem extends React.Component{
         });
     }
     render(){
+        //we don't need to specify this.state everytime we need to access an attribute of the object:object destructuring
         const {price,title,qty}=this.state;
         return(
             <div className="cart-item">
@@ -74,6 +95,8 @@ class CartItem extends React.Component{
         );
     }
 }
+
+//way to style in JSX: as objects
 const styles={
     image:{
         height:110,
@@ -82,4 +105,6 @@ const styles={
         background: '#ccc'
     }
 }
+
+//we need to export CartItem to be available to App.js:
 export default CartItem;
