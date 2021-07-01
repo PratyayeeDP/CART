@@ -3,19 +3,19 @@ import React from 'react';
 
 //our CartItem will inherit some features from React.Component:
 class CartItem extends React.Component{
-    //we add this constructor in order to define the state of the cartItem:
-    constructor(){
-        //we need to call constructor of the parent class: super()
-        super();
-        this.state={
-            price: 999,
-            title: 'Phone',
-            qty: 1,
-            img:''
-        }
-        //this.increaseQuantity=this.increaseQuantity.bind(this);
-        //this.testing();
-    }
+    // //we add this constructor in order to define the state of the cartItem:
+    // constructor(){
+    //     //we need to call constructor of the parent class: super()
+    //     super();
+    //     this.state={
+    //         price: 999,
+    //         title: 'Phone',
+    //         qty: 1,
+    //         img:''
+    //     }
+    //     //this.increaseQuantity=this.increaseQuantity.bind(this);
+    //     //this.testing();
+    // }
      //testing(){
     //     const promise=new Promise((resolve,reject)=>{
     //         setTimeout(()=>{
@@ -59,8 +59,10 @@ class CartItem extends React.Component{
         });
     }
     render(){
+        console.log('this.props',this.props);
+
         //we don't need to specify this.state everytime we need to access an attribute of the object:object destructuring
-        const {price,title,qty}=this.state;
+        const {price,title,qty}=this.props.product;
         return(
             <div className="cart-item">
                 <div className="left-block">
