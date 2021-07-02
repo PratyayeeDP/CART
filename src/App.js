@@ -14,21 +14,21 @@ class App extends React.Component {
                 price: 99,
                 title: 'Watch',
                 qty: 1,
-                img:'',
+                img:'https://images-na.ssl-images-amazon.com/images/I/61WixzlVuXL._UL1280_.jpg',
                 id:1
             },
             {
                 price: 999,
                 title: 'Phone',
                 qty: 1,
-                img:'',
+                img:'https://5.imimg.com/data5/QN/CD/MY-927781/telephone-instrument-500x500.jpeg',
                 id:2
             },
             {
                 price: 99999,
                 title: 'Laptop',
                 qty: 1,
-                img:'',
+                img:'http://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg',
                 id:3
             }
         ]
@@ -69,6 +69,14 @@ getCartCount=()=>{
     });
     return count;
 }
+getCartTotal=()=>{
+    const {products}=this.state;
+    let cartTotal=0;
+    products.map((product)=>{
+        cartTotal+=product.qty*product.price;
+    });
+    return cartTotal;
+}
   render(){
     const {products}=this.state;
     return (
@@ -80,6 +88,7 @@ getCartCount=()=>{
         onDecreaseQuantity={this.handleDecreaseQuantity}
         onDeleteProduct={this.handleDeleteProduct}
         /> 
+        <div style={{padding:10,fontSize:20}}>TOTAL: {this.getCartTotal()}</div>
       </div>
     );
   }
