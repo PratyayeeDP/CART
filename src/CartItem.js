@@ -2,7 +2,8 @@
 import React from 'react';
 
 //our CartItem will inherit some features from React.Component:
-class CartItem extends React.Component{
+//class CartItem extends React.Component{
+const CartItem=(props)=>{
     // //we add this constructor in order to define the state of the cartItem:
     // constructor(){
     //     //we need to call constructor of the parent class: super()
@@ -58,46 +59,45 @@ class CartItem extends React.Component{
     //         }
     //     });
     // }
-    render(){
-        console.log('this.props',this.props);
+    //render(){
+    //console.log('this.props',this.props);
 
-        //we don't need to specify this.state everytime we need to access an attribute of the object:object destructuring
-        const {price,title,qty}=this.props.product;
-        const {product, onIncreaseQuantity,onDecreaseQuantity,onDeleteProduct}=this.props;
-        return(
-            <div className="cart-item">
-                <div className="left-block">
-                    <img style={styles.image}/>
-                </div>
-                <div className="right-block">
-                    <div style={{fontSize:25}}>{title}</div>
-                    <div style={{color:'#777'}}>Rs. {price}</div>
-                    <div style={{color:'#777'}}>Qty: {qty}</div>
-                    <div className="cart-item-actions">
-                        {/*Buttons*/}
-                        <img 
-                        alt="increase" 
-                        className="action-icons" 
-                        src="https://image.flaticon.com/icons/png/512/1828/1828925.png"
-                        onClick={()=>onIncreaseQuantity(product)}
-                        />
-                        <img 
-                        alt="decrease" 
-                        className="action-icons" 
-                        src="https://image.flaticon.com/icons/png/512/992/992683.png"
-                        onClick={()=>onDecreaseQuantity(product)}
-                        />
-                        <img 
-                        alt="delete" 
-                        className="action-icons" 
-                        src="https://image.flaticon.com/icons/png/512/3096/3096673.png" 
-                        onClick={()=>onDeleteProduct(product.id)}
-                        />
-                    </div>
+    //we don't need to specify this.state everytime we need to access an attribute of the object:object destructuring
+    const {price,title,qty}=props.product;
+    const {product, onIncreaseQuantity,onDecreaseQuantity,onDeleteProduct}=props;
+    return(
+        <div className="cart-item">
+            <div className="left-block">
+                <img style={styles.image}/>
+            </div>
+            <div className="right-block">
+                <div style={{fontSize:25}}>{title}</div>
+                <div style={{color:'#777'}}>Rs. {price}</div>
+                <div style={{color:'#777'}}>Qty: {qty}</div>
+                <div className="cart-item-actions">
+                    {/*Buttons*/}
+                    <img 
+                    alt="increase" 
+                    className="action-icons" 
+                    src="https://image.flaticon.com/icons/png/512/1828/1828925.png"
+                    onClick={()=>onIncreaseQuantity(product)}
+                    />
+                    <img 
+                    alt="decrease" 
+                    className="action-icons" 
+                    src="https://image.flaticon.com/icons/png/512/992/992683.png"
+                    onClick={()=>onDecreaseQuantity(product)}
+                    />
+                    <img 
+                    alt="delete" 
+                    className="action-icons" 
+                    src="https://image.flaticon.com/icons/png/512/3096/3096673.png" 
+                    onClick={()=>onDeleteProduct(product.id)}
+                    />
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 //way to style in JSX: as objects
